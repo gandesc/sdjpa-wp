@@ -40,6 +40,7 @@ public class User {
     @Column(name = "user_status")
     private Integer status;
 
+    @Basic(optional = false)
     private String displayName;
 
 }
