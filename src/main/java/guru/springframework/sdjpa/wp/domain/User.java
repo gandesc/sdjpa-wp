@@ -1,8 +1,12 @@
 package guru.springframework.sdjpa.wp.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
+import org.springframework.lang.Nullable;
 
 import java.sql.Timestamp;
 
@@ -16,30 +20,39 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_login")
+    @Length(max = 60)
+    @Column(name = "user_login", nullable = false)
     private String user;
 
-    @Column(name = "user_pass")
+    @Length(max = 255)
+    @Column(name = "user_pass", nullable = false)
     private String password;
 
-    @Column(name = "user_nicename")
+    @Length(max = 50)
+    @Column(name = "user_nicename", nullable = false)
     private String nicename;
 
-    @Column(name = "user_email")
+    @Email
+    @Length(max = 100)
+    @Column(name = "user_email", nullable = false)
     private String email;
 
-    @Column(name = "user_url")
+    @URL
+    @Length(max = 100)
+    @Column(name = "user_url", nullable = false)
     private String url;
 
     @Column(name = "user_registered")
     private Timestamp registered;
 
-    @Column(name = "user_activation_key")
+    @Length(max = 255)
+    @Column(name = "user_activation_key", nullable = false)
     private String activationKey;
 
-    @Column(name = "user_status")
+    @Column(name = "user_status", nullable = false)
     private Integer status;
 
+    @Length(max = 250)
     @Basic(optional = false)
     private String displayName;
 
