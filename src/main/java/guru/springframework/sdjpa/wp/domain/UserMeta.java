@@ -15,7 +15,10 @@ public class UserMeta {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "umeta_id")
   private Long id;
-  private Long userId;
+//  private Long userId;
+  @ManyToOne
+  private User user;
+
   @Length(max = 255)
   @Column(length = 255, columnDefinition = "longtext")
   private String metaKey;

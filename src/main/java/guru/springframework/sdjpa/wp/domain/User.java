@@ -8,6 +8,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import java.sql.Timestamp;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -59,4 +60,7 @@ public class User {
     @Column(nullable = false, length = 250)
     private String displayName;
 
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    private Set<UserMeta> userMetaSet;
 }
