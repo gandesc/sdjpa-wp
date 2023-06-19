@@ -21,39 +21,39 @@ public class User {
     private Long id;
 
     @Length(max = 60)
-    @Column(name = "user_login", nullable = false)
+    @Column(name = "user_login", nullable = false, length = 60)
     private String user;
 
     @Length(max = 255)
-    @Column(name = "user_pass", nullable = false)
+    @Column(name = "user_pass", nullable = false, length = 255)
     private String password;
 
     @Length(max = 50)
-    @Column(name = "user_nicename", nullable = false)
+    @Column(name = "user_nicename", nullable = false, length = 50)
     private String nicename;
 
     @Email
     @Length(max = 100)
-    @Column(name = "user_email", nullable = false)
+    @Column(name = "user_email", nullable = false, length = 100)
     private String email;
 
     @URL
     @Length(max = 100)
-    @Column(name = "user_url", nullable = false)
+    @Column(name = "user_url", nullable = false, length = 100)
     private String url;
 
     @Column(name = "user_registered")
     private Timestamp registered;
 
     @Length(max = 255)
-    @Column(name = "user_activation_key", nullable = false)
+    @Column(name = "user_activation_key", nullable = false, length = 255)
     private String activationKey;
 
     @Column(name = "user_status", nullable = false)
     private Integer status;
 
     @Length(max = 250)
-    @Basic(optional = false)
+    @Column(nullable = false, length = 250)
     private String displayName;
 
 }
